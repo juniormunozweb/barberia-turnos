@@ -3,72 +3,127 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Reservá tu turno - Barbería</title>
+  <title>Barbershop Squad - Reservá tu turno</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f5f5f5;
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #111;
+    }
+    header {
+      background-color: #000;
+      text-align: center;
       padding: 20px;
     }
+    header img {
+      max-width: 120px;
+      border-radius: 50%;
+    }
+    header h1 {
+      color: #fff;
+      margin: 10px 0 0;
+      font-size: 1.5rem;
+    }
     .container {
-      max-width: 500px;
-      margin: auto;
-      background: white;
-      padding: 30px;
-      border-radius: 15px;
+      max-width: 600px;
+      margin: 30px auto;
+      background-color: #fff;
+      padding: 25px;
+      border-radius: 12px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
     h2 {
       text-align: center;
-      color: #333;
+      color: #c10000;
+      margin-bottom: 10px;
+    }
+    p {
+      text-align: center;
+      margin-bottom: 20px;
     }
     input, select, button {
       width: 100%;
-      padding: 10px;
+      padding: 12px;
       margin-top: 15px;
       border-radius: 8px;
       border: 1px solid #ccc;
+      font-size: 1rem;
     }
     button {
-      background-color: #333;
+      background-color: #c10000;
       color: white;
       font-weight: bold;
       cursor: pointer;
+      border: none;
     }
-    .confirmacion {
+    .galeria {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
       margin-top: 20px;
-      color: green;
+    }
+    .galeria img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .insta {
       text-align: center;
+      margin-top: 30px;
+    }
+    .insta a {
+      background-color: #000;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
+
+  <header>
+    <img src="https://i.imgur.com/Z5U1yVx.png" alt="Logo Barbershop Squad" />
+    <h1>Barbershop Squad</h1>
+  </header>
+
   <div class="container">
     <h2>Reservá tu turno</h2>
+    <p>Elegí tu servicio, fecha y hora. Te contactamos por WhatsApp.</p>
     <form id="form-turno">
-      <label>Nombre:</label>
-      <input type="text" id="nombre" required />
-
-      <label>Teléfono:</label>
-      <input type="tel" id="telefono" required />
-
-      <label>Servicio:</label>
+      <input type="text" id="nombre" placeholder="Nombre" required />
+      <input type="tel" id="telefono" placeholder="Teléfono" required />
       <select id="servicio" required>
-        <option value="">Seleccionar</option>
+        <option value="">Seleccioná un servicio</option>
         <option value="Corte">Corte</option>
         <option value="Barba">Barba</option>
         <option value="Corte + Barba">Corte + Barba</option>
       </select>
-
-      <label>Fecha:</label>
       <input type="date" id="fecha" required />
-
-      <label>Hora:</label>
       <input type="time" id="hora" required />
-
       <button type="submit">Reservar por WhatsApp</button>
     </form>
-    <div class="confirmacion" id="mensaje"></div>
+  </div>
+
+  <div class="container">
+    <h2>Sobre Nosotros</h2>
+    <p>Somos una barbería donde el estilo, el detalle y la calidad van primero. Vení a vivir una experiencia personalizada, cortes de primer nivel y buena onda.</p>
+  </div>
+
+  <div class="container">
+    <h2>Galería</h2>
+    <div class="galeria">
+      <img src="https://i.imgur.com/aQZjEvA.jpg" alt="Corte 1" />
+      <img src="https://i.imgur.com/0XbRVD2.jpg" alt="Corte 2" />
+      <img src="https://i.imgur.com/mwRl3hx.jpg" alt="Corte 3" />
+      <img src="https://i.imgur.com/urWpoHL.jpg" alt="Corte 4" />
+    </div>
+  </div>
+
+  <div class="insta">
+    <a href="https://www.instagram.com/barbershop_squad/" target="_blank">Seguinos en Instagram</a>
   </div>
 
   <script>
@@ -83,10 +138,9 @@
       const fecha = document.getElementById("fecha").value;
       const hora = document.getElementById("hora").value;
 
-      // Reemplazá ESTE número con el tuyo
       const numeroWhatsApp = "5492664548585";
 
-      const mensaje = `Hola! Quiero reservar un turno en la barbería:%0A
+      const mensaje = `Hola! Quiero reservar un turno en Barbershop Squad:%0A
 🧔 Nombre: ${nombre}%0A
 📞 Teléfono: ${telefono}%0A
 ✂️ Servicio: ${servicio}%0A
@@ -98,6 +152,6 @@
       window.open(url, "_blank");
     });
   </script>
+
 </body>
 </html>
-
